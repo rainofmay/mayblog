@@ -1,0 +1,8 @@
+.profile {
+  width: 150px;
+  height: 115px;
+  border-radius: 20px;
+  margin: 0 auto;
+  display: block; 
+}
+/* margin: 0 auto;  display: block; 하면 이미지 가운데 정렬 */
