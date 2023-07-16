@@ -1,12 +1,21 @@
+.header {
+  width:70%;
+}
+
 .title {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   outline: none;
-  padding: 0 60px 0 60px;
 }
 
 .title h3 {
-  padding: 0 170px 0 500px;
+}
+
+.title .assistant{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .title img {

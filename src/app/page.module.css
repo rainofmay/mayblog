@@ -5,3 +5,8 @@
 .layout {
   display: flex;
 }
+
+.children {
+  position: absolute;
+  left: 200px;
+}

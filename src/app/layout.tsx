@@ -19,11 +19,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={sans.className}>
       <body>
-        <Header />
         <div className={styles.layout}>
           <Sidemenu />
-          <main>{children}</main>
+          <Header />
         </div>       
+        <div className={styles.children}>
+          <main>{children}</main>
+        </div>
+          
       </body>
     </html>
   );
