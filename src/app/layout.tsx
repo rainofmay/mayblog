@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={sans.className}>
+    <html lang="en" style={{ fontFamily: "IBM" }}>
       <body>
         <div className={styles.layout}>
           <Sidemenu />

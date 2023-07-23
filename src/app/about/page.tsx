@@ -2,11 +2,7 @@ import Image from "next/image";
 import styles from "./about.module.css";
 import background from "../../../public/images/background.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPen,
-  faLocationDot,
-  faServer,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPen, faLocationDot, faServer } from "@fortawesome/free-solid-svg-icons";
 import { faHtml5, faReact } from "@fortawesome/free-brands-svg-icons";
 
 export default function AboutPage() {
