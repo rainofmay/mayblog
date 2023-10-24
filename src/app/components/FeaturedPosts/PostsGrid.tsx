@@ -1,11 +1,13 @@
 import { Post } from "@/service/post";
 import PostCard from "./PostCard";
-//type Props = {posts: Post[]};
+import styles from "../FeaturedPosts/FeaturedPosts.module.css";
+
+
 export default function PostsGrid({ posts }: { posts: Post[] }) {
   return (
-    <ul className="grid gird-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <ul className={styles.lists}> 
       {posts.map((post) => (
-        <li key={post.path}> <PostCard post={post} /> </li>
+        <li className={styles.list} key={post.id}> <PostCard post={post} /> </li>
       ))}
     </ul>
   ); 

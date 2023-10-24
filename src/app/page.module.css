@@ -1,17 +1,28 @@
-.main {
-  font-size: 12px;
-}
-
-.layout {
-  display: flex;
-}
-
-.children {
-  position: absolute;
-  left: 200px;
+.homePage {
+  height: 100%;
 }
 
 @font-face {
   font-family: "IBM";
   src: url('../../public/fonts/IBMPlexSansKR-Light.woff');
+}
+
+@font-face {
+  font-family: "SoraMedium";
+  src: url('../../public/fonts/Sora-Medium.woff');
+}
+
+@font-face {
+  font-family: "SoraLight";
+  src: url('../../public/fonts/Sora-Light.woff');
+}
+
+@font-face {
+  font-family: "SoraThin";
+  src: url('../../public/fonts/Sora-Thin.woff');
+}
+
+@font-face {
+  font-family: "SoraRegular";
+  src: url('../../public/fonts/Sora-Regular.woff');
 }

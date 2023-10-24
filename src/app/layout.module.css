@@ -1,0 +1,45 @@
+.layout {
+  position: relative;
+  width: 80%;
+  /* height: 100%; */
+  float: right;
+  margin: 0 auto ;
+  overflow: hidden;
+  user-select: none;  /* Copy & Paste 방지 */
+}
+
+.video {
+  position: absolute;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 100px;
+  width: 100%;
+  object-fit: cover; 
+  z-index: -1;
+}
+
+@font-face {
+  font-family: "IBM";
+  src: url('../../public/fonts/IBMPlexSansKR-Light.woff');
+}
+
+@font-face {
+  font-family: "SoraMedium";
+  src: url('../../public/fonts/Sora-Medium.woff');
+}
+
+@font-face {
+  font-family: "SoraLight";
+  src: url('../../public/fonts/Sora-Light.woff');
+}
+
+@font-face {
+  font-family: "SoraThin";
+  src: url('../../public/fonts/Sora-Thin.woff');
+}
+
+@font-face {
+  font-family: "SoraRegular";
+  src: url('../../public/fonts/Sora-Regular.woff');
+}

@@ -1,10 +1,11 @@
-import styles from "./page.module.css";
+"use client";
+
+import styles from "./layout.module.css";
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
 import Header from "./components/header/header";
 import Sidemenu from "./components/sidemenu/sidemenu";
-
-const sans = Open_Sans({ subsets: ["latin"] });
+import { usePathname } from "next/navigation";
+import ScrollToTopArrow from "./components/scrollToTopArrow/ScrollToTopArrow";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,17 +17,21 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathName = usePathname();
+
   return (
-    <html lang="en" style={{ fontFamily: "IBM" }}>
+    <html lang="en" style={{ fontFamily: "SoraRegular" }}>
       <body>
         <div className={styles.layout}>
           <Sidemenu />
           <Header />
-        </div>       
-        <div className={styles.children}>
-          <main>{children}</main>
+          {pathName === "/" && (
+            <video autoPlay loop muted className={styles.video}>
+              <source src="/backgroundVideo.mp4" type="video/mp4" />
+            </video>
+          )}
         </div>
-          
+        {children}
       </body>
     </html>
   );

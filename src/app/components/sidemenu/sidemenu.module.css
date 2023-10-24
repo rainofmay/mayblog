@@ -1,11 +1,123 @@
-.sideMenu{
-  height : 100%;
-  width : 250px;
-  border-right: 0.5px solid;
+.profile {
+  margin-top: 50px;
 }
 
-.lists {
-  list-style-type: none;
-  margin : 10vh 0 10vh 0;
-  text-align: center;
+.sideMenu {
+  color: white;
+  font-size: 14px;
+  height: 100vh;
+  width: 210px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: url('../../../../public//images/sidebackground1.png');
+  background-size: cover;
+  background-position: center center; /* 배경 이미지를 가운데 정렬 */
+  background-repeat: no-repeat; 
+  box-shadow: 2px 0px 5px 0px rgba(173, 172, 172, 0.5);
+  -webkit-box-shadow: 2px 0px 5px 0px rgba(173, 172, 172, 0.5);
+  -moz-box-shadow: 2px 0px 6px 0px rgba(173, 172, 172, 0.75);
+  overflow-y: auto;  /* 스크롤 가능하게 */
+  scrollbar-width: none;  /* 스크롤바 안보이게, 익스플로러 */
+}
+
+.sideMenu::-webkit-scrollbar {
+  display: none;  /* 스크롤바 안보이게, 크롬, 엣지  등 */
+}
+
+.sideMenu .introduction {
+  font-size: 11px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.sentence {
+  display: flex;
+  font-size: 13px;
+  justify-content: center;
+  margin-top: 35px;
+  margin-bottom: 10px;
+  padding-right: 15px;
+} 
+
+.penIcon {
+  filter: brightness(0) invert(1) sepia(1) hue-rotate(180deg);
+  margin-right: 10px;
+}
+
+.line {
+  width: 100%;
+  height: 10px;
+  border-bottom: 1px solid rgba(173, 172, 172, 0.5);
+  margin-bottom: 30px;
+}
+
+.sideMenu .lists {
+  padding: 0;
+}
+
+.sideMenu .lists .list {
+  list-style: none;
+  margin: 20px 0 20px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sideMenu .lists .list .listspan {
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.sideMenu .lists .list .listspan:hover {
+  color:rgb(225, 2, 255);
+}
+
+.sideMenu .lists .list .listspan .icon{
+  filter: brightness(0) invert(1) sepia(1) hue-rotate(180deg);
+  margin-right: 10px;
+}
+
+.sideMenu .lists .list .listspan .expand {
+  filter: brightness(0) invert(1) sepia(1) hue-rotate(180deg);
+  margin-left: 10px;
+}
+
+.sideMenu .subLists{
+  padding-left: 20px;
+  overflow: hidden;
+  height: 200px;    /* 기본 설정높이 */
+  transition: all 0.3s
+}
+
+/* .visible {
+  max-height: 130px;   
+}
+
+.hidden {
+  max-height: 0;   
+} */
+
+.sideMenu .subList{
+  white-space: nowrap;
+  font-size: 12px;
+  list-style: none;
+  padding: 5px 0 5px 0;
+  transition: 0.3s; 
+}
+
+.sideMenu .subList:hover{
+  color:rgb(225, 2, 255);
+}
+
+.sideMenu .subListspan {
+  margin-top: 5px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sideMenu .subListspan .subIcon {
+  filter: brightness(0) invert(1) sepia(1) hue-rotate(180deg);
+  margin-right: 10px;
 }
