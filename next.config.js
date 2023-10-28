@@ -1,10 +1,28 @@
+/** @type {import('next').NextConfig} */
 const { withContentlayer } = require('next-contentlayer');
 
-/** @type {import('next').NextConfig} */
-const options = {
-  reactStrictMode: true,
+const nextConfig = withContentlayer({
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+        // port: '',
+        // pathname: '/cledow/**',
+      },
+    ],
+  },
+  reactStrictMode: false,
   swcMinify: false,
-  // 옵션은 자유롭게 넣어주세요.
-};
+});
 
-module.exports = withContentlayer(options);
+module.exports = nextConfig;
+// const options = {
+//   reactStrictMode: false,
+//   swcMinify: false,
+//   experimental: {
+//     scrollRestoration: true,
+//   },
+// };
+
+// module.exports = withContentlayer(options);

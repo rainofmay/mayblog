@@ -1,9 +1,10 @@
 ---
 title: Giscus로 블로그 댓글 시스템 설정 및 Utterances
-description: 간편하고 무료로 사용가능한 Giscus로 댓글 시스템을 설정해보도록 하겠습니다.
-category: 카테고리2
+subtitle: 간편하고 무료로 사용가능한 Giscus로 댓글 시스템을 설정해보도록 하겠습니다.
+description: test2
+category: React
 date: 2023-10-22
-thumbnail: https://github.com/yiyb0603/yiyb-blog/assets/50941453/b75b7a16-769e-4e49-ae5b-6ceddb679666
+thumbnail: https://github.com/cledow/BlogImage/blob/main/KakaoTalk_20231025_212917499.jpg?raw=true
 ---
 
 안녕하세요! 오늘은 `Giscus`를 사용하여 블로그 댓글 시스템을 제공하는 방법에 대해서 알아보겠습니다.
@@ -122,8 +123,7 @@ export default PostComment;
 ```
 
 그 다음으로 `useGiscus`라는 이름의 커스텀 훅을 아래처럼 작성해줍시다.
-
-```typescript
+```typescript title="📖contentlayer.config.ts" 
 import { RefObject, useRef, useEffect } from 'react';
 
 // Giscus 설정 페이지에서 만들어준 Script 태그의 속성들을 object로 만들었습니다.

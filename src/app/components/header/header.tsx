@@ -15,13 +15,13 @@ export default function Header() {
         <Image
           src={logo}
           alt="logo"
-          width="110"
-          height="80"
+          width="240"
+          height="95"
           onClick={() => {
             router.push("/");
           }}
         />
-        <h3>PINE IN MAY</h3>
+        {/* <h2 style={{fontSize:22}}>Night in May</h2> */}
       </div>
       <div className={styles.searching}>
         <Searching /> 

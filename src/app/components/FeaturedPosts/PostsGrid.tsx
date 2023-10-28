@@ -1,14 +1,18 @@
-import { Post } from "@/service/post";
 import PostCard from "./PostCard";
 import styles from "../FeaturedPosts/FeaturedPosts.module.css";
+import { v4 as uuidv4 } from "uuid";
 
-
-export default function PostsGrid({ posts }: { posts: Post[] }) {
+export default function PostsGrid({ posts }: any) {
+  console.log(posts)
   return (
-    <ul className={styles.lists}> 
-      {posts.map((post) => (
-        <li className={styles.list} key={post.id}> <PostCard post={post} /> </li>
-      ))}
+    <ul className={styles.lists}>
+      {posts.map(
+        (post:any) => (
+          <li className={styles.list} key={uuidv4()}>
+            <PostCard post={post} />
+          </li>
+        )
+      )}
     </ul>
-  ); 
+  );
 }

@@ -1,3 +1,4 @@
+  
 // import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 // import { useMDXComponent } from "next-contentlayer/hooks";
 import { getMDXComponent, useMDXComponent } from "next-contentlayer/hooks";
@@ -5,7 +6,6 @@ import { allPosts } from "@/contentlayer/generated";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
 import Image from "next/image";
-import PostThumbnail from "@/components/Modules/Post/Thumbnail/Thumbnail";
 import format from "date-fns/format";
 
 type Props = {
@@ -33,15 +33,13 @@ export default async function Page({ params: { slug } }: Props) {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>{post?.title}</h1>
-      <h4 className={styles.subTitle}>{post?.subTitle}</h4>
+      <h4 className={styles.subTitle}>{post?.subtitle}</h4>
       <div className={styles.time}>
         <time>{format(new Date(post?.date), "yyyy. MM. dd")}</time>
       </div>
-      {/* <PostThumbnail
-          thumbnail={post?.thumbnail || ''}
-          alt={post?.title || ''}
-        /> */}
+      <img src={post.thumbnail} alt={post?.title} style={{borderRadius:10, width:768, height: 400, marginTop:20, marginBottom:20}}/>
       <article className={styles.content}>
+       {/* 브라우저는 <MDXRemote />가 마운트되면서 데이터를 HTML로 변환 */}
         <MDXContent />
       </article>
     </div>

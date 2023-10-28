@@ -5,3 +5,17 @@
   height: 90%;
   color: black;
 }
+
+.container .title {
+  padding: 50px 20px 50px 0;
+  text-align: center;
+  display: block;
+}
+
+.container .title span {
+  /* border-top: 1px solid #057b69; */
+  border-bottom: 1px solid #057b69;
+  display: inline-block;
+  padding : 20px 5px 20px 0;
+  width: 200px;
+}

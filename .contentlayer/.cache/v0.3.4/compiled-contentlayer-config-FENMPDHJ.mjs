@@ -8,13 +8,14 @@ import remarkGfm from "remark-gfm";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import rehypeSlug from "rehype-slug";
 import rehypeExternalLinks from "rehype-external-links";
+import rehypeCodeTitles from "rehype-code-titles";
 var Post = defineDocumentType(() => ({
   name: "Post",
   filePathPattern: `**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
-    subTitle: { type: "string", required: false },
+    subtitle: { type: "string", required: false },
     description: { type: "string", required: false },
     category: { type: "string", required: true },
     tags: { type: "list", of: { type: "string" }, required: false },
@@ -34,6 +35,7 @@ var contentSource = makeSource({
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
+      rehypeCodeTitles,
       rehypeSlug,
       [
         rehypePrettyCode,
@@ -58,4 +60,4 @@ export {
   Post,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-WNCMN22Z.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-FENMPDHJ.mjs.map

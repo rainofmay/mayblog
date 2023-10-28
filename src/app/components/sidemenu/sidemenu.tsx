@@ -91,7 +91,7 @@ export default function Sidemenu() {
         <p>&nbsp; :&nbsp; Preparing for a Start-up</p>
       </div>
       <span className={styles.sentence}>
-      ✏️ &nbsp;MAY의 블로그입니다.
+      ✏️ &nbsp;MAY 블로그입니다.
       </span>
       <div className={styles.line}></div>
       <ul className={styles.lists}>

@@ -3,12 +3,13 @@ import {
   makeSource,
 } from 'contentlayer/source-files';
 import rehypePrettyCode from 'rehype-pretty-code';
-import remarkGfm from 'remark-gfm';
 
+import remarkGfm from 'remark-gfm';
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
-import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 import rehypeExternalLinks from 'rehype-external-links';
+import rehypeCodeTitles from 'rehype-code-titles';
+
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -16,7 +17,7 @@ export const Post = defineDocumentType(() => ({
   contentType: 'mdx', 
   fields: {
     title: { type: 'string', required: true },
-    subTitle: { type: 'string', required: false },
+    subtitle: { type: 'string', required: false },
     description: { type: 'string', required: false },
     category: { type: 'string', required: true },
     tags: { type: 'list', of: { type: 'string' }, required: false },
@@ -30,10 +31,10 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
-const rehypeOptions = {
-  theme: 'slack-dark',
-  keepBackground: true,
-};
+// const rehypeOptions = {
+//   theme: 'slack-dark',
+//   keepBackground: true,
+// };
 
 const contentSource = makeSource({
   // 마크다운 파일이 저장되어 있는 루트 폴더
@@ -42,6 +43,7 @@ const contentSource = makeSource({
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
+      rehypeCodeTitles,
       rehypeSlug,
       [
         rehypePrettyCode,

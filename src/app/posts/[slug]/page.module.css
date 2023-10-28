@@ -13,7 +13,6 @@
 .title {
   letter-spacing: -0.7px;
   font-size: 30px;
-  /* 원하는 크기로 조절 */
   white-space: nowrap;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -57,7 +56,21 @@
 .content code {
   box-sizing: border-box;
   font-family: "PretendardRegular", sans-serif;
-  box-shadow: inset 0 -20px 0 #bfffa1;
+  /* box-shadow: inset 0 -20px 0 #bfffa1; */
+}
+
+.content blockquote {
+  display: block;
+  border-left: 5px solid #057b69;
+  border-radius: 7px;
+  background-color: #e4e6e8;
+  quotes: none;
+  padding-left: 10px;
+  margin-left: 0;
+}
+
+.content blockquote p {
+  padding: 5px 0 5px 0;
 }
 
 .content strong {
@@ -101,11 +114,46 @@
 
 .content pre {
   width: 100%;
-  margin: 1.5rem 0;
+  margin: 0;
   word-break: break-all;
   overflow: auto;
-  padding: 1.5rem;
-  border-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.content code {
+  counter-reset: line;
+  margin-top: 20px;
+}
+
+/* 코드 타이틀 */
+.content div[data-rehype-pretty-code-title] {
+  height: 3rem;
+  background-color: #14181a;
+  color:#BFFF00;
+  font-size: 18px;
+  width: 100%;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.content code > span::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 0.75rem;
+  margin-right: 1.25rem;
+  text-align: right;
+  color: rgba(128, 128, 128, 0.7);
+}
+ 
+.content code > span::before {
+  width: 1.25rem;
+}
+.content code > span::before {
+  width: 1.75rem;
 }
 
 .blockquote {

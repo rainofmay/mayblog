@@ -6,6 +6,7 @@
   margin: 0 auto ;
   overflow: hidden;
   user-select: none;  /* Copy & Paste 방지 */
+  --color-theme: #057b69;
 }
 
 .video {
