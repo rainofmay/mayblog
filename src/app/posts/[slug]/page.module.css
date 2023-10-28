@@ -1,3 +1,5 @@
+  
+
 .container {
   position: relative;
   max-width: 768px;
@@ -167,4 +169,17 @@
 @font-face {
   font-family: "PretendardRegular";
   src: url('../../../../public/fonts/pretendard-regular.woff2');
+}
+
+.scrollToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  z-index: 999;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.scrollToTop:hover {
+  scale: 1.1;
 }

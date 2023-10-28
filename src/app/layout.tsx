@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import Header from "./components/header/header";
 import Sidemenu from "./components/sidemenu/sidemenu";
 import { usePathname } from "next/navigation";
-import ScrollToTopArrow from "./components/scrollToTopArrow/ScrollToTopArrow";
 
 export const metadata: Metadata = {
   title: "Create Next App",

@@ -1,12 +1,14 @@
-  
-// import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-// import { useMDXComponent } from "next-contentlayer/hooks";
+'use client'
+
 import { getMDXComponent, useMDXComponent } from "next-contentlayer/hooks";
 import { allPosts } from "@/contentlayer/generated";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
 import Image from "next/image";
 import format from "date-fns/format";
+import arrow from '../../../../public/images/icon/arrow.png';
+import PostComment from "@/components/Modules/Post/PostComment/PostComment";
+
 
 type Props = {
   params: {
@@ -20,7 +22,7 @@ export function generateStaticParams() {
   }));
 }
 
-export default async function Page({ params: { slug } }: Props) {
+export default function Page({ params: { slug } }: Props) {
   // Find the post for the current page.
   const post = allPosts.find((post) => post._raw.flattenedPath === slug);
 
@@ -29,7 +31,11 @@ export default async function Page({ params: { slug } }: Props) {
 
   // Parse the MDX file via the getMDXComponent.
   const MDXContent = getMDXComponent(post.body.code);
-
+  const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
+  const MoveToTop = () => {
+    if (!isBrowser()) return;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>{post?.title}</h1>
@@ -37,11 +43,17 @@ export default async function Page({ params: { slug } }: Props) {
       <div className={styles.time}>
         <time>{format(new Date(post?.date), "yyyy. MM. dd")}</time>
       </div>
-      <img src={post.thumbnail} alt={post?.title} style={{borderRadius:10, width:768, height: 400, marginTop:20, marginBottom:20}}/>
+      <img
+        src={post.thumbnail}
+        alt={post?.title}
+        style={{ borderRadius: 10, width: 768, height: 400, marginTop: 20, marginBottom: 20, }}
+      />
       <article className={styles.content}>
-       {/* 브라우저는 <MDXRemote />가 마운트되면서 데이터를 HTML로 변환 */}
+        {/* 브라우저는 <MDXRemote />가 마운트되W면서 데이터를 HTML로 변환 */}
         <MDXContent />
       </article>
+      <Image className={styles.scrollToTop} src={arrow} alt='scroll' onClick={MoveToTop} width={25} height={25}/>
+      {post.category === 'night' ? null : <PostComment />}
     </div>
   );
 }
