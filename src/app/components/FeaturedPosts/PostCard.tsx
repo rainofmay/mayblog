@@ -22,9 +22,9 @@ export default function PostCard({ post }: any) {
       <article className={styles.cardSection}>
         <div className={styles.cardSectionImage}>
           <img
-            src={thumbnail} // 수정 필요
+            src={thumbnail} 
             alt={title}
-            width={430}
+            width={400}
             height={238}
           />
         </div>

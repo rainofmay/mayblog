@@ -1,0 +1,39 @@
+.container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 1vh;
+  left: 220px;
+  width: 80%;
+
+}
+
+.pagination {
+  list-style-type : none;
+  padding: 0;
+
+}
+
+.pageItem {
+  width: 30px;
+  height: 30px;
+  color: #055549;
+  background-color: #ffffff;
+  border-radius: 50%;
+  border: 1px solid #055549;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.pageLink {
+  padding-top: 5px;
+  font-weight: bolder;
+}
+
+.pageItem:hover {
+  background-color: #269c8a;
+  color: white;
+}

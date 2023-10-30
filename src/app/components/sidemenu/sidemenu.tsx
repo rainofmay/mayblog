@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./sidemenu.module.css";
 import Profile from "../profile/profile";
-import Link from "next/link";
 import Image from "next/image";
 import duties from "../../../../public/images/icon/duties.png";
 import programming from "../../../../public/images/icon/programming.png";
@@ -23,6 +22,8 @@ import night from "../../../../public/images/icon/night.png";
 import git from "../../../../public/images/icon/git.png";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/navigation";
+import { allPosts } from "@/contentlayer/generated";
+import Router from "next/router";
 
 const Home: any = { id: uuidv4(), name: "Home", img: home };
 
@@ -60,15 +61,17 @@ export const categories = [
   },
 ];
 
-type categoryProps = {
-  id: string;
-  name: string;
-  img: any;
-  subcategories: any;
-};
+// type categoryProps = {
+//   id: string;
+//   name: string;
+//   img: any;
+//   subcategories: any;
+// };
 
 export default function Sidemenu() {
   const router = useRouter();
+
+  //하위 카테고리 토글
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
   const toggleCategory = (category: string) => {
@@ -81,6 +84,18 @@ export default function Sidemenu() {
     }
   };
 
+  //카테고리 클릭 시 색상 변경
+  const [selectedItem, setSelectedItem] = useState(null);
+  const clickedCategory = (e: any) => {
+    router.push(`/lists/${e.target.textContent}`);
+    setSelectedItem(e.target.textContent);
+
+  };
+  const Counter = (name: string) => {
+    const newPosts = allPosts.filter((post) => post.category === name);
+    return newPosts.length;
+  };
+
   return (
     <nav className={styles.sideMenu}>
       <div className={styles.profile}>
@@ -90,13 +105,17 @@ export default function Sidemenu() {
         <p>&nbsp; :&nbsp; BA Naval Academy (2015)</p>
         <p>&nbsp; :&nbsp; Preparing for a Start-up</p>
       </div>
-      <span className={styles.sentence}>
-      ✏️ &nbsp;MAY 블로그입니다.
-      </span>
+      <span className={styles.sentence}>✏️ &nbsp;MAY 블로그입니다.</span>
       <div className={styles.line}></div>
       <ul className={styles.lists}>
         <li key={Home.id} className={styles.list}>
-          <span onClick={() => {router.push('/')}} className={styles.listspan}>
+          <span
+            onClick={() => {
+              router.push("/");
+              setSelectedItem(null);
+            }}
+            className={styles.listspan}
+          >
             <Image
               src={Home.img}
               alt={Home.name}
@@ -106,7 +125,7 @@ export default function Sidemenu() {
             />
             {Home.name}
           </span>
-        </li> 
+        </li>
         {categories.map((category) => (
           <li key={category.id} className={styles.list}>
             <span
@@ -139,29 +158,51 @@ export default function Sidemenu() {
                 />
               )}
             </span>
-            {/* {expandedCategories.includes(category.id) && ( */}
-              <ul className={`${styles["subLists"]} ${
-                expandedCategories.includes(category.id) ? styles.visible : styles.hidden
-              }`} style={expandedCategories.includes(category.id) ? {maxHeight:category.subcategories.length*33}: {maxHeight:0}}>
-                {category.subcategories.map((subcategory) => (
-                  <li key={subcategory.id} className={styles.subList}>
-                    <span onClick={() => {router.push(`/lists/${subcategory.name}`)}} className={styles.subListspan}> 
-                      <Image
-                        src={subcategory.img}
-                        alt={subcategory.name}
-                        width={15}
-                        height={15}
-                        className={styles.subIcon}
-                      />
-                      {subcategory.name}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+            <ul
+              className={`${styles["subLists"]} ${
+                expandedCategories.includes(category.id)
+                  ? styles.visible
+                  : styles.hidden
+              }`}
+              style={
+                expandedCategories.includes(category.id)
+                  ? { maxHeight: category.subcategories.length * 33 }
+                  : { maxHeight: 0 }
+              }
+            >
+              {category.subcategories.map((subcategory) => (
+                <li
+                  onClick={(e) => clickedCategory(e)}
+                  key={subcategory.id}
+                  className={styles.subList}
+                  style={{
+                    color:
+                      selectedItem === subcategory.name
+                        ? "rgb(225, 2, 255)"
+                        : undefined,
+                  }}
+                >
+                  <span className={styles.subListspan}>
+                    <Image
+                      src={subcategory.img}
+                      alt={subcategory.name}
+                      width={15}
+                      height={15}
+                      className={styles.subIcon}
+                    />
+                    {subcategory.name}
+                  </span>
+                  <span className={styles.counter}>
+                    &nbsp;{"("}
+                    {Counter(subcategory.name)}
+                    {")"}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </li>
         ))}
       </ul>
     </nav>
   );
 }
-// onClick 함수

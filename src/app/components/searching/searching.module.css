@@ -27,3 +27,44 @@
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   cursor: text;
 }
+
+/* 검색 결과 */
+.section {
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  border-radius: 8px;
+  width: 500px;
+  height: 250px;
+}
+
+.searchedLists {
+  padding-left: 10px;
+}
+
+.searchedList {
+  list-style-type: none;
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+}
+
+.subContainer {
+  display: flex;
+  flex-direction: row ; /* 텍스트 요소를 세로로 배치 */
+}
+
+.title {
+  font-size: 14px;
+  margin: 15px 0 5px 0;
+}
+
+.subtitle {
+  font-size: 11px;
+}
+
+.image {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 8px;
+}

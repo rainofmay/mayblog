@@ -8,6 +8,7 @@ import Image from "next/image";
 import format from "date-fns/format";
 import arrow from '../../../../public/images/icon/arrow.png';
 import PostComment from "@/components/Modules/Post/PostComment/PostComment";
+import { getNextPrevPost } from "@/service/post";
 
 
 type Props = {
@@ -25,6 +26,8 @@ export function generateStaticParams() {
 export default function Page({ params: { slug } }: Props) {
   // Find the post for the current page.
   const post = allPosts.find((post) => post._raw.flattenedPath === slug);
+  const newPost = getNextPrevPost(post?.category, post?.title)  
+  const { prev, next } = newPost
 
   // 404 if the post does not exist.
   if (!post) notFound();
@@ -49,7 +52,7 @@ export default function Page({ params: { slug } }: Props) {
         style={{ borderRadius: 10, width: 768, height: 400, marginTop: 20, marginBottom: 20, }}
       />
       <article className={styles.content}>
-        {/* 브라우저는 <MDXRemote />가 마운트되W면서 데이터를 HTML로 변환 */}
+        {/* 브라우저는 <MDXRemote />가 마운트되면서 데이터를 HTML로 변환 */}
         <MDXContent />
       </article>
       <Image className={styles.scrollToTop} src={arrow} alt='scroll' onClick={MoveToTop} width={25} height={25}/>

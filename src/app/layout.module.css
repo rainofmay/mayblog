@@ -1,11 +1,9 @@
 .layout {
   position: relative;
   width: 80%;
-  /* height: 100%; */
   /* float: right; */
   margin: 0 auto ;
   user-select: none;  /* Copy & Paste 방지 */  
-  --color-theme: #057b69;
 }
 
 .video {

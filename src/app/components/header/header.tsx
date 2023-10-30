@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import Searching from "../searching/searching";
+import Searching from "../searching/searchingBtn";
 import styles from "./header.module.css";
 import logo from "../../../../public/images/logo.png";
 import { useRouter } from "next/navigation";

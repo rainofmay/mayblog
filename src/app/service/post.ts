@@ -1,62 +1,44 @@
-export type Post = {
-  id: string;
-  title: string;
-  date: string;
-  content: any;
-  category: string;
-  privacy: string;
-};
+import { allPosts } from "@/contentlayer/generated";
 
-export type PostData = Post & {
-  content: string;
-  next: Post | null;
-  prev: Post | null;
-};
 
-export const getAllPosts = async () => {
-  const res = await fetch("http://localhost:3000/api/blogPost", {
-    cache: "no-store",
-  });
-  const posts = await res.json();
-  return posts;
-};
 
-export const getPostData = async (id:string) => {
-  const res = await fetch("http://localhost:3000/api/blogPost", {
-    cache: "no-store",
-  });
-  const posts = await res.json();
-  const post = posts.find((post:any) => post.id === id)
-  return post;
-};
+export function getNextPrevPost (category:any, title:any) {
+  const classifiedPosts = allPosts.filter((post)=> post.category === category)
+  const post = allPosts.find((post)=> post.title === title)
 
-export const addPost = async (sentData: any) => {
-  const res = await fetch("api/blogPost", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(sentData),
-  });
-  // console.log(sentData);
-};
+  if (!post) throw new Error(`${title}에 해당하는 포스트를 찾을 수 없음`);
 
-export const editTodo = async (newTodo:any) => {
-  await fetch("api/todo", {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(newTodo),
-  });
-};
+  const index = classifiedPosts?.indexOf(post);
+  const next = index > 0 ? classifiedPosts[index-1] : null
+  const prev = index < classifiedPosts.length ? classifiedPosts[index + 1] : null 
 
-export const deleteTodo = async (id: string) => {
-  await fetch("api/todo", {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(id),
-  });
-};
+  return { next, prev };
+}
+
+// export const getAllPosts = async () => {
+//   const res = await fetch("http://localhost:3000/api/blogPost", {
+//     cache: "no-store",
+//   });
+//   const posts = await res.json();
+//   return posts;
+// };
+
+// export const getPostData = async (id:string) => {
+//   const res = await fetch("http://localhost:3000/api/blogPost", {
+//     cache: "no-store",
+//   });
+//   const posts = await res.json();
+//   const post = posts.find((post:any) => post.id === id)
+//   return post;
+// };
+
+// export const addPost = async (sentData: any) => {
+//   const res = await fetch("api/blogPost", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(sentData),
+//   });
+// };
+

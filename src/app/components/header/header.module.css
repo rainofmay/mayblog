@@ -16,13 +16,16 @@
   align-items: center;
   z-index: 100;
   margin-left: 150px;
+  position: absolute;
+  left: 13%;
 }
 
 .title {
   display: flex;
   outline: none;
+  justify-content: center;
   align-items: center;
-  margin-right: 300px;
+  margin-right: 120px;
 }
 
 .title h3 {
