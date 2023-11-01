@@ -21,11 +21,12 @@ export default function PostCard({ post }: any) {
     >
       <article className={styles.cardSection}>
         <div className={styles.cardSectionImage}>
-          <img
+          <Image
             src={thumbnail} 
             alt={title}
             width={400}
             height={238}
+            priority={true}
           />
         </div>
         <div className={styles.cardSectionSub}>

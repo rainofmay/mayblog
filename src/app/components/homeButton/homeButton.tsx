@@ -9,6 +9,6 @@ export default function HomeButton() {
   return (
     <Image onClick={()=> {
       router.push('/')
-      }} src={home} alt="home" width="32" height="32" />
+      }} src={home} alt="home" width="32" height="32" priority={true} />
   );
 }

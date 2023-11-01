@@ -17,6 +17,7 @@ export default function Header() {
           alt="logo"
           width="240"
           height="95"
+          priority={true}
           onClick={() => {
             router.push("/");
           }}

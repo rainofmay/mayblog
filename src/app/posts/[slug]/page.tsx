@@ -55,7 +55,7 @@ export default function Page({ params: { slug } }: Props) {
         {/* 브라우저는 <MDXRemote />가 마운트되면서 데이터를 HTML로 변환 */}
         <MDXContent />
       </article>
-      <Image className={styles.scrollToTop} src={arrow} alt='scroll' onClick={MoveToTop} width={25} height={25}/>
+      <Image className={styles.scrollToTop} src={arrow} alt='scroll' onClick={MoveToTop} width={25} height={25} priority={true}/>
       {post.category === 'night' ? null : <PostComment />}
     </div>
   );

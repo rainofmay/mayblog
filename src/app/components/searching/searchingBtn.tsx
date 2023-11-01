@@ -40,7 +40,7 @@ export default function Searching() {
       {filtered.length ? (
         <section
           className={styles.section}
-          style={{ backgroundColor: "rgba(51, 51, 51, 0.9)" }}
+          style={{ backgroundColor: "rgba(51, 51, 51, 0.7)" }}
         >
           <header className={styles.header}>🔍 검색 결과 ...</header>
           <ul className={styles.searchedLists}>

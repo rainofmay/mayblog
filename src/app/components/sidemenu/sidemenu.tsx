@@ -128,6 +128,7 @@ export default function Sidemenu() {
               width={15}
               height={15}
               className={styles.icon}
+              priority={true}
             />
             {Home.name}
           </span>
@@ -144,6 +145,7 @@ export default function Sidemenu() {
                 width={15}
                 height={15}
                 className={styles.icon}
+                priority={true}
               />
               {category.name}
               {expandedCategories.includes(category.id) ? (
@@ -153,6 +155,7 @@ export default function Sidemenu() {
                   className={styles.expand}
                   width={15}
                   height={15}
+                  priority={true}
                 />
               ) : (
                 <Image
@@ -161,6 +164,7 @@ export default function Sidemenu() {
                   className={styles.expand}
                   width={15}
                   height={15}
+                  priority={true}
                 />
               )}
             </span>
@@ -191,6 +195,7 @@ export default function Sidemenu() {
                       width={15}
                       height={15}
                       className={styles.subIcon}
+                      priority={true}
                     />
                     {subcategory.name}
                   </span>

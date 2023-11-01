@@ -49,7 +49,7 @@ export default function Lists({ params: { slug } }: categoryProps) {
   else {
     return (
       <div className={styles.notice}>
-        <Image src={leaf} alt="notice" width={300} height={300} />
+        <Image src={leaf} alt="notice" width={300} height={300} priority={true}/>
         <p className={styles.noticeComment}>아직 게시물이 없습니다.</p>
       </div>
     );
