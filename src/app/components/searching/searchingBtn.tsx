@@ -5,6 +5,7 @@ import styles from "./searching.module.css";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation"; //Next.js13 버전부터 경로 얻는 방법
+import { v4 as uuidv4 } from "uuid";
 
 export default function Searching() {
   const [inputText, setInputText] = useState("");
@@ -44,8 +45,8 @@ export default function Searching() {
           <header className={styles.header}>🔍 검색 결과 ...</header>
           <ul className={styles.searchedLists}>
             {filtered.map((list) => (
-              <Link href={`/posts/${list.description}`} className={styles.link}>
-                <li className={styles.searchedList} key={list._id}>
+              <Link href={`/posts/${list.description}`} className={styles.link} key={uuidv4()}>
+                <li className={styles.searchedList}>
                   <div className={styles.subContainer}>
                     <img
                       className={styles.image}
