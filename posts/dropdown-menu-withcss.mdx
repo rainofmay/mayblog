@@ -1,0 +1,183 @@
+---
+title: 드롭다운이 되는 메뉴 기능 만들기
+subtitle: Next.JS(React)와 CSS로 드롭다운 메뉴 만들기
+description: dropdown-menu-withcss
+category: Next.JS
+date: 2023-11-01
+thumbnail: https://github.com/cledow/BlogImage/blob/main/dropdownimg.jpg?raw=true
+---
+
+안녕하세요 Next.JS & Post CSS 로 메뉴 드롭다운 효과를 만들어보려고 합니다.
+'A' 라는 상위 카테고리가 있고, A 카테고리를 클릭하면 A의 하위 카테고리들이 **toggle** 방식으로 on/off됩니다.
+
+> Toggle ?
+> : 특정 UI(User Interpace)를 한 번 누르면 기능이 활성화되고, 다시 누르면 off되는 키(방식)
+<br />
+## 1. 원 리
+
+드롭다운은 좌측의 메뉴처럼, 상위 카테고리를 클릭 했을 때 하위 카테고리들이 나타나는 효과입니다.
+이를 구현하려면, **하위 카테고리를 감추고 있다가 특정 상태(사용자가 클릭)가 되면 내려오는 것처럼 보이게 해야 합니다.**
+여기서 그 `특정 상태는 useState를 통해 관리할 수 있습니다.`
+
+## 2. 구 현
+```typescript title="📖sidemenu.tsx"
+import React, { useState } from "react";
+import styles from "./sidemenu.module.css";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { allPosts } from "@/contentlayer/generated";
+//생 략
+export const categories = [
+  {
+    name: "Programming",
+    img: programming,
+    subcategories: [
+      { id: uuidv4(), name: "React", img: reactIcon },
+      { id: uuidv4(), name: "Next.JS", img: next },
+      { id: uuidv4(), name: "DataBase", img: database },
+      { id: uuidv4(), name: "CSS", img: html },
+      { id: uuidv4(), name: "Git", img: git },
+    ],
+  },
+  // 생략
+];
+export default function Sidemenu() {
+  const router = useRouter();
+
+  const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
+  const toggleCategory = (category: string) => {
+    if (expandedCategories.includes(category)) {
+      setExpandedCategories(expandedCategories.filter((c) => c !== category));
+    } else {
+      setExpandedCategories([...expandedCategories, category]);
+    }
+  };
+}
+```
+위 처럼 문자 데이터의 집합 배열인 expandedCategories에 카테고리를 넣는 방식입니다.
+이미 포함되어 있다면 제거하고, 포함되어 있지 않다면 추가하는 조건문이 있습니다.
+(포함시키는 방법은 li(span) 태그에 onClick을 걸어 toggleCategory함수를 실행시킵니다.)
+
+자, 여기까지 하면 클릭된 카테고리들은 배열을 이루게 되는데, 드롭다운 효과를 위해서는 
+최초에는 배열을 숨기는 CSS 코드를 ul 태그에 주어야 합니다. `overflow:hidden 입니다.`
+```typescript title="📖sidemenu.module.css"
+.sideMenu .subLists{
+  padding-left: 20px;
+  overflow: hidden;  /* 요소 내용이 경계를 벗어날 경우 숨김 */
+  height: 200px;    
+  transition: all 0.3s
+}
+
+.sideMenu .subList{
+  white-space: nowrap;
+  font-size: 12px;
+  list-style: none;
+  padding: 5px 0 5px 0;
+  transition: 0.3s; 
+  position: relative;
+}
+```
+<br />
+그리고 expandedCategories에 배열이 있으면 하위 해당 카테고리를 보여주고,
+없다면 보여주지 않습니다.
+'A'가 있다면 a 행위를 하고 아니면 b를 한다 => `삼항연산자를 쓸 수 있다는 추측을 할 수 있습니다.`
+아래와 같이 maxHeight 을 카테고리 수에 비례하여 높여주거나 0으로 만드는 삼항연산자 코드를 씁니다.
+```typescript title="📖sidemenu.tsx"
+<ul 
+  className={styles.subLists}
+  style={
+    expandedCategories.includes(category.id)
+      ? { maxHeight: category.subcategories.length * 33 }
+      : { maxHeight: 0 } 💡💡
+  }
+>
+```
+<br />
+전체 코드입니다.
+```typescript title="📖sidemenu.tsx"
+import React, { useState } from "react";
+import styles from "./sidemenu.module.css";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { allPosts } from "@/contentlayer/generated";
+//생 략
+export const categories = [
+  {
+    name: "Programming",
+    img: programming,
+    subcategories: [
+      { id: uuidv4(), name: "React", img: reactIcon },
+      { id: uuidv4(), name: "Next.JS", img: next },
+      { id: uuidv4(), name: "DataBase", img: database },
+      { id: uuidv4(), name: "CSS", img: html },
+      { id: uuidv4(), name: "Git", img: git },
+    ],
+  },
+  // 생략
+];
+export default function Sidemenu() {
+  const router = useRouter();
+
+  const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
+  const toggleCategory = (category: string) => {
+    if (expandedCategories.includes(category)) {
+      setExpandedCategories(expandedCategories.filter((c) => c !== category));
+    } else {
+      setExpandedCategories([...expandedCategories, category]);
+    }
+  };
+
+   return (
+    <nav className={styles.sideMenu}>
+      <div className={styles.profile}>
+        <Profile />
+      </div>
+      //...생 략
+      <ul className={styles.lists}>
+        {categories.map((category) => (
+          <li key={category.id} className={styles.list}>
+            <span
+              onClick={() => toggleCategory(category.id)}  // UI가 클릭되면 toggleCategory함수로 전달
+              className={styles.listspan}
+            >
+              {category.name}
+            </span>
+            <ul
+              className={styles.subLists}
+              style={
+                expandedCategories.includes(category.id)
+                  ? { maxHeight: category.subcategories.length * 33 }
+                  : { maxHeight: 0 }
+              }
+            >
+              {category.subcategories.map((subcategory) => (
+                <li
+                  key={subcategory.id}
+                  className={styles.subList}
+                >
+                  <span className={styles.subListspan}>
+                    {subcategory.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+```
+<br />
+
+
+
+## 🌿 맺 음
+
+프로그래밍 관련 첫 포스팅입니다. 배우는 단계라 부족한 점이 너무 많습니다.
+답글로 많이 알려주세요. 감사합니다.
+`블로그를 만드는데 YIYB님으로부터 많은 참고를 했습니다. 감사합니다`
+> https://yiyb-blog.vercel.app
+<br />
+<br />
+<br />

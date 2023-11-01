@@ -87,17 +87,9 @@
 .sideMenu .subLists{
   padding-left: 20px;
   overflow: hidden;
-  height: 200px;    /* 기본 설정높이 */
+  /* height: 200px;  */
   transition: all 0.3s
 }
-
-/* .visible {
-  max-height: 130px;   
-}
-
-.hidden {
-  max-height: 0;   
-} */
 
 .sideMenu .subList{
   white-space: nowrap;
@@ -129,5 +121,6 @@
   margin: 0 0 0 10px;
   color: rgb(143, 143, 143);
   font-size: 10px;
-  /* align-items: center; */
+  pointer-events: none; 
+  /* 클릭 활성화 안되게 */
 }

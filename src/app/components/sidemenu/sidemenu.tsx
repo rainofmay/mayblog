@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./sidemenu.module.css";
 import Profile from "../profile/profile";
 import Image from "next/image";
@@ -23,7 +23,6 @@ import git from "../../../../public/images/icon/git.png";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/navigation";
 import { allPosts } from "@/contentlayer/generated";
-import Router from "next/router";
 
 const Home: any = { id: uuidv4(), name: "Home", img: home };
 
@@ -36,7 +35,7 @@ export const categories = [
       { id: uuidv4(), name: "React", img: reactIcon },
       { id: uuidv4(), name: "Next.JS", img: next },
       { id: uuidv4(), name: "DataBase", img: database },
-      { id: uuidv4(), name: "HTML & CSS", img: html },
+      { id: uuidv4(), name: "CSS", img: html },
       { id: uuidv4(), name: "Git", img: git },
     ],
   },
@@ -72,24 +71,31 @@ export default function Sidemenu() {
   const router = useRouter();
 
   //하위 카테고리 토글
-  const [isClicked, setIsClicked] = useState<boolean>(false);
+
   const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
   const toggleCategory = (category: string) => {
     if (expandedCategories.includes(category)) {
       setExpandedCategories(expandedCategories.filter((c) => c !== category));
-      setIsClicked(false);
+
     } else {
       setExpandedCategories([...expandedCategories, category]);
-      setIsClicked(true);
     }
   };
 
   //카테고리 클릭 시 색상 변경
   const [selectedItem, setSelectedItem] = useState(null);
   const clickedCategory = (e: any) => {
-    router.push(`/lists/${e.target.textContent}`);
-    setSelectedItem(e.target.textContent);
-
+    const clickedElement = e.target;
+    // const previousElement = clickedElement.previousElementSibling;
+    //   const spanText = previousElement.textContent;
+    //   setSelectedItem(spanText); // 텍스트를 상태로 업데이트
+    //   router.push(`/lists/${spanText}`)
+    
+    const inputString = e.target.textContent
+    const match = inputString.match(/([\w.]+)(?:\s*\(\d+\))?/)
+    const extractedString = match[1]
+    router.push(`/lists/${extractedString}`);
+    setSelectedItem(extractedString);
   };
   const Counter = (name: string) => {
     const newPosts = allPosts.filter((post) => post.category === name);
@@ -105,7 +111,7 @@ export default function Sidemenu() {
         <p>&nbsp; :&nbsp; BA Naval Academy (2015)</p>
         <p>&nbsp; :&nbsp; Preparing for a Start-up</p>
       </div>
-      <span className={styles.sentence}>✏️ &nbsp;MAY 블로그입니다.</span>
+      <span className={styles.sentence}>🌿 &nbsp;MAY 블로그입니다.</span>
       <div className={styles.line}></div>
       <ul className={styles.lists}>
         <li key={Home.id} className={styles.list}>
@@ -159,11 +165,7 @@ export default function Sidemenu() {
               )}
             </span>
             <ul
-              className={`${styles["subLists"]} ${
-                expandedCategories.includes(category.id)
-                  ? styles.visible
-                  : styles.hidden
-              }`}
+              className={styles.subLists}
               style={
                 expandedCategories.includes(category.id)
                   ? { maxHeight: category.subcategories.length * 33 }
