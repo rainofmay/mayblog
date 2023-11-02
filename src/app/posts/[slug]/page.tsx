@@ -52,6 +52,7 @@ export default function Page({ params: { slug } }: Props) {
         style={{ borderRadius: 10, width: 768, height: 400, marginTop: 20, marginBottom: 20, }}
         width={768}
         height={320}
+        priority={true}
       />
       <article className={styles.content}>
         {/* 브라우저는 <MDXRemote />가 마운트되면서 데이터를 HTML로 변환 */}
