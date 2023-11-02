@@ -184,3 +184,7 @@
 .scrollToTop:hover {
   scale: 1.1;
 }
+
+.space {
+  height : 100px;
+}

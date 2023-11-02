@@ -46,17 +46,20 @@ export default function Page({ params: { slug } }: Props) {
       <div className={styles.time}>
         <time>{format(new Date(post?.date), "yyyy. MM. dd")}</time>
       </div>
-      <img
-        src={post.thumbnail}
+      <Image
+        src={`${post.thumbnail}`}
         alt={post?.title}
         style={{ borderRadius: 10, width: 768, height: 400, marginTop: 20, marginBottom: 20, }}
+        width={768}
+        height={320}
       />
       <article className={styles.content}>
         {/* 브라우저는 <MDXRemote />가 마운트되면서 데이터를 HTML로 변환 */}
         <MDXContent />
       </article>
       <Image className={styles.scrollToTop} src={arrow} alt='scroll' onClick={MoveToTop} width={25} height={25} priority={true}/>
-      {post.category === 'night' ? null : <PostComment />}
+      {post.category === 'Night' ? null : <PostComment />}
+      <div className={styles.space}></div>
     </div>
   );
 }

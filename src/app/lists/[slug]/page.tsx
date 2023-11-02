@@ -6,7 +6,6 @@ import styles from "./page.module.css";
 import PostsGrid from "@/components/FeaturedPosts/PostsGrid";
 import { useState, useEffect } from "react";
 import leaf from "@/../public/images/leaf.png";
-import axios from "axios";
 import Pagination from "../Pagination";
 
 type categoryProps = {

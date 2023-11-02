@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation"; //Next.js13 버전부터 경로 얻는 방법
 import { v4 as uuidv4 } from "uuid";
+import Image from "next/image";
 
 export default function Searching() {
   const [inputText, setInputText] = useState("");
@@ -48,10 +49,13 @@ export default function Searching() {
               <Link href={`/posts/${list.description}`} className={styles.link} key={uuidv4()}>
                 <li className={styles.searchedList}>
                   <div className={styles.subContainer}>
-                    <img
+                    <Image
                       className={styles.image}
-                      src={list.thumbnail}
+                      src={`${list.thumbnail}`}  //절대경로는 문자열로 인식
                       alt="thumbnail"
+                      width={50}
+                      height={50}
+                      priority={true}
                     />
                     <div>
                       <h3 className={styles.title}>{list.title}</h3>
