@@ -22,7 +22,6 @@ export default function Header() {
             router.push("/");
           }}
         />
-        {/* <h2 style={{fontSize:22}}>Night in May</h2> */}
       </div>
       <div className={styles.searching}>
         <Searching /> 
