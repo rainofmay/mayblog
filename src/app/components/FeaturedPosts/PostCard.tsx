@@ -24,9 +24,10 @@ export default function PostCard({ post }: any) {
           <Image
             src={thumbnail} 
             alt={title}
-            width={400}
-            height={238}
+            // width={300}
+            // height={200}
             priority={true}
+            fill
           />
         </div>
         <div className={styles.cardSectionSub}>
