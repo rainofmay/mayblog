@@ -2,5 +2,6 @@
 
 import dropdownMenuWithcssMdx from './dropdown-menu-withcss.mdx.json' assert { type: 'json' }
 import nightdiary1Mdx from './nightdiary1.mdx.json' assert { type: 'json' }
+import daydiary1Mdx from './daydiary1.mdx.json' assert { type: 'json' }
 
-export const allPosts = [dropdownMenuWithcssMdx, nightdiary1Mdx]
+export const allPosts = [dropdownMenuWithcssMdx, nightdiary1Mdx, daydiary1Mdx]
