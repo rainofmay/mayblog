@@ -23,12 +23,12 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params: { slug } }: Props): Metadata {
-  const post = allPosts.find((post) => post._raw.flattenedPath === slug);
-  const title = post?.title;
-  const description = post?.description
-  return {title, description};
-}
+// export function generateMetadata({ params: { slug } }: Props): Metadata {
+//   const post = allPosts.find((post) => post._raw.flattenedPath === slug);
+//   const title = post?.title;
+//   const description = post?.description
+//   return {title, description};
+// }
 
 export default function Page({ params: { slug } }: Props) {
   // Find the post for the current page.

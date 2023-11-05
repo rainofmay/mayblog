@@ -13,14 +13,6 @@ type categoryProps = {
   params: { slug: string };
 };
 
-export function generateMetadata({
-  params: { slug },
-}: categoryProps): Metadata {
-  const title = "카테고리: " + slug;
-  const description = slug;
-  return { title, description };
-}
-
 export default function Lists({ params: { slug } }: categoryProps) {
   const classifiedPosts = allPosts.filter((post) => post.category === slug);
   const category = classifiedPosts[0]?.category;
