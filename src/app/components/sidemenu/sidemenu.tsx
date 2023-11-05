@@ -51,7 +51,7 @@ export const categories = [
   },
   {
     id: uuidv4(),
-    name: "Private",
+    name: "Personal",
     img: daily,
     subcategories: [
       { id: uuidv4(), name: "Day", img: day },

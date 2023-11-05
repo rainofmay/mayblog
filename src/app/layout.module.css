@@ -1,8 +1,8 @@
 .layout {
-  position: relative;
-  width: 80%;
+  /* position: relative; */
+  /* width: 80%; */
   /* float: right; */
-  margin: 0 auto ;
+  /* margin: 0 auto ; */
   user-select: none;  /* Copy & Paste 방지 */  
 }
 

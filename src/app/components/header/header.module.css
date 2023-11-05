@@ -9,15 +9,15 @@
 }
 
 .header {
-  width: 70vw;
+  position: absolute;
+  left: 670px;
+  width: 660px;
   height: 80px;
   display: flex;
   justify-content:center;
   align-items: center;
   z-index: 100;
-  margin-left: 10vw;
-  position: absolute;
-  left: 11vw;
+  /* margin-left: 16vw; */
 }
 
 .title {
@@ -28,6 +28,6 @@
 }
 
 .searching {
-  margin-left: 8vw;
+  margin-left: 100px;
 }
 

@@ -7,16 +7,25 @@ import PostsGrid from "@/components/FeaturedPosts/PostsGrid";
 import { useState, useEffect } from "react";
 import leaf from "@/../public/images/leaf.png";
 import Pagination from "../Pagination";
+import { Metadata } from "next";
 
 type categoryProps = {
   params: { slug: string };
 };
 
+export function generateMetadata({
+  params: { slug },
+}: categoryProps): Metadata {
+  const title = "카테고리: " + slug;
+  const description = slug;
+  return { title, description };
+}
+
 export default function Lists({ params: { slug } }: categoryProps) {
   const classifiedPosts = allPosts.filter((post) => post.category === slug);
   const category = classifiedPosts[0]?.category;
 
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
 
@@ -36,19 +45,26 @@ export default function Lists({ params: { slug } }: categoryProps) {
             <span>✏️ {category}</span>
           </h3>
           <PostsGrid posts={classifiedPosts} />
+          <div className={styles.pagination}>
+            <Pagination
+              postsPerPage={postsPerPage}
+              totalPosts={classifiedPosts.length}
+              paginate={setCurrentPage}
+            />
+          </div>
         </div>
-        <Pagination
-          className={styles.pagination}
-          postsPerPage={postsPerPage}
-          totalPosts={classifiedPosts.length}
-          paginate={setCurrentPage}
-        />
       </>
     );
   else {
     return (
       <div className={styles.notice}>
-        <Image src={leaf} alt="notice" width={300} height={300} priority={true}/>
+        <Image
+          src={leaf}
+          alt="notice"
+          width={300}
+          height={300}
+          priority={true}
+        />
         <p className={styles.noticeComment}>아직 게시물이 없습니다.</p>
       </div>
     );

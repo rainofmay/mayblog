@@ -1,6 +1,6 @@
 'use client'
 
-import { getMDXComponent, useMDXComponent } from "next-contentlayer/hooks";
+import { getMDXComponent } from "next-contentlayer/hooks";
 import { allPosts } from "@/contentlayer/generated";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
@@ -9,7 +9,7 @@ import format from "date-fns/format";
 import arrow from '../../../../public/images/icon/arrow.png';
 import PostComment from "@/components/Modules/Post/PostComment/PostComment";
 import { getNextPrevPost } from "@/service/post";
-
+import { Metadata } from "next";
 
 type Props = {
   params: {
@@ -21,6 +21,13 @@ export function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post._raw.flattenedPath,
   }));
+}
+
+export function generateMetadata({ params: { slug } }: Props): Metadata {
+  const post = allPosts.find((post) => post._raw.flattenedPath === slug);
+  const title = post?.title;
+  const description = post?.description
+  return {title, description};
 }
 
 export default function Page({ params: { slug } }: Props) {

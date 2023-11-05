@@ -5,6 +5,18 @@ import Header from "./components/header/header";
 import Sidemenu from "./components/sidemenu/sidemenu";
 import { usePathname } from "next/navigation";
 
+
+export const metadata = {
+  title: {
+    default: "May Blog",
+    template: "May Blog | %s",
+  },
+  description: "MAY, A Programmer",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
