@@ -47,18 +47,18 @@
 }
 
 .searchedLists {
-  color: rgb(126, 163, 205);
+  color: rgb(255, 255, 255);
   text-decoration: none;
   padding-left: 10px;
 }
 
 .link {
-  color: rgb(126, 163, 205);
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
 .link:visited {
-  color: rgb(126, 163, 205);
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 

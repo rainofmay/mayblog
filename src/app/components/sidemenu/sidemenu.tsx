@@ -16,8 +16,9 @@ import reactIcon from "../../../../public/images/icon/react.png";
 import next from "../../../../public/images/icon/next.png";
 import expandMore from "../../../../public/images/icon/expandMore.png";
 import expandLess from "../../../../public/images/icon/expandLess.png";
-import daily from "../../../../public/images/icon/daily.png";
+import personal from "../../../../public/images/icon/personal.png";
 import day from "../../../../public/images/icon/day.png";
+import study from "../../../../public/images/icon/study.png";
 import night from "../../../../public/images/icon/night.png";
 import git from "../../../../public/images/icon/git.png";
 import { v4 as uuidv4 } from "uuid";
@@ -52,8 +53,9 @@ export const categories = [
   {
     id: uuidv4(),
     name: "Personal",
-    img: daily,
+    img: personal,
     subcategories: [
+      { id: uuidv4(), name: "Study", img: study },
       { id: uuidv4(), name: "Day", img: day },
       { id: uuidv4(), name: "Night", img: night },
     ],
