@@ -17,7 +17,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-gap: 40px;
-	gap: 40px;
+	gap: 20px;
   padding: 0;
 }
 
@@ -41,6 +41,7 @@
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
   transition: all 0.4s;
   width: 300px;
+  margin: 0 auto;
 }
 
 .cardSection:hover {

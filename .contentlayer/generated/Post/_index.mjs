@@ -4,5 +4,6 @@ import daydiary1Mdx from './daydiary1.mdx.json' assert { type: 'json' }
 import dropdownMenuWithcssMdx from './dropdown-menu-withcss.mdx.json' assert { type: 'json' }
 import englishLearnTheRopesMdx from './english-learn-the-ropes.mdx.json' assert { type: 'json' }
 import nightdiary1Mdx from './nightdiary1.mdx.json' assert { type: 'json' }
+import daydiary2Mdx from './daydiary2.mdx.json' assert { type: 'json' }
 
-export const allPosts = [daydiary1Mdx, dropdownMenuWithcssMdx, englishLearnTheRopesMdx, nightdiary1Mdx]
+export const allPosts = [daydiary1Mdx, dropdownMenuWithcssMdx, englishLearnTheRopesMdx, nightdiary1Mdx, daydiary2Mdx]
