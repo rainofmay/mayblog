@@ -11,6 +11,7 @@
   padding: 50px 0 30px 0;
   text-align: center;
   display: block;
+  font-family: 'GMarketSansMedium';
 }
 
 .container .title span {
@@ -37,13 +38,10 @@
 .noticeComment {
   font-size: 30px;
   display: block;
-  font-family: "PretendardRegular", sans-serif;
+  font-family: "GMarketSansMedium", sans-serif;
 }
 
-@font-face {
-  font-family: "PretendardRegular";
-  src: url('../../../../public/fonts/pretendard-regular.woff2');
-}
+
 
 /* Pagination */
 .pagination {
@@ -51,4 +49,14 @@
   left: 370px;
   position: absolute;
   margin-top: 5vh;
+}
+
+@font-face {
+  font-family: "GMarketSansMedium";
+  src: url('../../../../public/fonts/GmarketSansTTFMedium.woff');
+}
+
+@font-face {
+  font-family: "GMarketSansLight";
+  src: url('../../../../public/fonts/GmarketSansTTFLight.woff');
 }

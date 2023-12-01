@@ -79,20 +79,26 @@
   font-size: 17px;
   line-height: 28px;
   margin: 0;
+  font-family: 'GMarketSansMedium';
 }
 
 
 .cardSection .cardSectionSub .cardSubTitle {
   font-size: 12px;
-  font-weight: lighter;
+  font-family: 'GMarketSansLight';
+  font-weight: bold;
   align-self: flex-start;
 }
 
-/* 
 @font-face {
-  font-family: "SoraThin";
-  src: url('../../../../public/fonts/Sora-Thin.woff');
-} */
+  font-family: "GMarketSansMedium";
+  src: url('../../../../public/fonts/GmarketSansTTFMedium.woff');
+}
+
+@font-face {
+  font-family: "GMarketSansLight";
+  src: url('../../../../public/fonts/GmarketSansTTFLight.woff');
+}
 
 @media (max-width: 1024px) {
   .lists {
