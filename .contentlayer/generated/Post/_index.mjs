@@ -5,9 +5,10 @@ import daydiary2Mdx from './daydiary2.mdx.json' assert { type: 'json' }
 import english1LearnTheRopesMdx from './english1-learn-the-ropes.mdx.json' assert { type: 'json' }
 import english2UpInTheAirMdx from './english2-up-in-the-air.mdx.json' assert { type: 'json' }
 import english3OnTheSamePageMdx from './english3-on-the-same-page.mdx.json' assert { type: 'json' }
+import english4CashCowMdx from './english4-cash-cow.mdx.json' assert { type: 'json' }
 import next1DropdownMenuWithcssMdx from './next1-dropdown-menu-withcss.mdx.json' assert { type: 'json' }
 import next2CsrSsgSsrMdx from './next2-csr-ssg-ssr.mdx.json' assert { type: 'json' }
 import nightdiary1Mdx from './nightdiary1.mdx.json' assert { type: 'json' }
 import nightdiary2Mdx from './nightdiary2.mdx.json' assert { type: 'json' }
 
-export const allPosts = [daydiary1Mdx, daydiary2Mdx, english1LearnTheRopesMdx, english2UpInTheAirMdx, english3OnTheSamePageMdx, next1DropdownMenuWithcssMdx, next2CsrSsgSsrMdx, nightdiary1Mdx, nightdiary2Mdx]
+export const allPosts = [daydiary1Mdx, daydiary2Mdx, english1LearnTheRopesMdx, english2UpInTheAirMdx, english3OnTheSamePageMdx, english4CashCowMdx, next1DropdownMenuWithcssMdx, next2CsrSsgSsrMdx, nightdiary1Mdx, nightdiary2Mdx]
