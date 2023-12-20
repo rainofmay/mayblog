@@ -10,5 +10,6 @@ import next1DropdownMenuWithcssMdx from './next1-dropdown-menu-withcss.mdx.json'
 import next2CsrSsgSsrMdx from './next2-csr-ssg-ssr.mdx.json' assert { type: 'json' }
 import nightdiary1Mdx from './nightdiary1.mdx.json' assert { type: 'json' }
 import nightdiary2Mdx from './nightdiary2.mdx.json' assert { type: 'json' }
+import nightdiary3Mdx from './nightdiary3.mdx.json' assert { type: 'json' }
 
-export const allPosts = [daydiary1Mdx, daydiary2Mdx, english1LearnTheRopesMdx, english2UpInTheAirMdx, english3OnTheSamePageMdx, english4CashCowMdx, next1DropdownMenuWithcssMdx, next2CsrSsgSsrMdx, nightdiary1Mdx, nightdiary2Mdx]
+export const allPosts = [daydiary1Mdx, daydiary2Mdx, english1LearnTheRopesMdx, english2UpInTheAirMdx, english3OnTheSamePageMdx, english4CashCowMdx, next1DropdownMenuWithcssMdx, next2CsrSsgSsrMdx, nightdiary1Mdx, nightdiary2Mdx, nightdiary3Mdx]
