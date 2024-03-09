@@ -21,6 +21,7 @@ import day from "../../../../public/images/icon/day.png";
 import study from "../../../../public/images/icon/study.png";
 import night from "../../../../public/images/icon/night.png";
 import git from "../../../../public/images/icon/git.png";
+import flutter from "../../../../public/images/icon/flutter.png";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/navigation";
 import { allPosts } from "@/contentlayer/generated";
@@ -36,7 +37,7 @@ export const categories = [
       { id: uuidv4(), name: "React", img: reactIcon },
       { id: uuidv4(), name: "Next.JS", img: next },
       { id: uuidv4(), name: "DataBase", img: database },
-      { id: uuidv4(), name: "CSS", img: html },
+      { id: uuidv4(), name: "Flutter", img: flutter },
       { id: uuidv4(), name: "Git", img: git },
     ],
   },

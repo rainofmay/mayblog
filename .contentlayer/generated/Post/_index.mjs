@@ -2,6 +2,7 @@
 
 import daydiary1Mdx from './daydiary1.mdx.json' assert { type: 'json' }
 import daydiary2Mdx from './daydiary2.mdx.json' assert { type: 'json' }
+import daydiary3Mdx from './daydiary3.mdx.json' assert { type: 'json' }
 import english1LearnTheRopesMdx from './english1-learn-the-ropes.mdx.json' assert { type: 'json' }
 import english2UpInTheAirMdx from './english2-up-in-the-air.mdx.json' assert { type: 'json' }
 import english3OnTheSamePageMdx from './english3-on-the-same-page.mdx.json' assert { type: 'json' }
@@ -11,6 +12,6 @@ import next2CsrSsgSsrMdx from './next2-csr-ssg-ssr.mdx.json' assert { type: 'jso
 import nightdiary1Mdx from './nightdiary1.mdx.json' assert { type: 'json' }
 import nightdiary2Mdx from './nightdiary2.mdx.json' assert { type: 'json' }
 import nightdiary3Mdx from './nightdiary3.mdx.json' assert { type: 'json' }
-import daydiary3Mdx from './daydiary3.mdx.json' assert { type: 'json' }
+import nightdiary4Mdx from './nightdiary4.mdx.json' assert { type: 'json' }
 
-export const allPosts = [daydiary1Mdx, daydiary2Mdx, english1LearnTheRopesMdx, english2UpInTheAirMdx, english3OnTheSamePageMdx, english4CashCowMdx, next1DropdownMenuWithcssMdx, next2CsrSsgSsrMdx, nightdiary1Mdx, nightdiary2Mdx, nightdiary3Mdx, daydiary3Mdx]
+export const allPosts = [daydiary1Mdx, daydiary2Mdx, daydiary3Mdx, english1LearnTheRopesMdx, english2UpInTheAirMdx, english3OnTheSamePageMdx, english4CashCowMdx, next1DropdownMenuWithcssMdx, next2CsrSsgSsrMdx, nightdiary1Mdx, nightdiary2Mdx, nightdiary3Mdx, nightdiary4Mdx]
